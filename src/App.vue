@@ -1,20 +1,35 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import VDataTable from './components/VDataTable.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      headers: [
+        {
+          id: 0,
+          name: 'Başlık 1',
+        },
+        {
+          id: 1,
+          name: 'Başlık 2',
+        },
+      ],
+    };
+  },
   components: {
-    HelloWorld,
+    VDataTable,
   },
 };
 </script>
+
+<template>
+  <div id="app">
+    <VDataTable
+      :headers="headers"
+    />
+  </div>
+</template>
 
 <style lang="scss">
 #app {

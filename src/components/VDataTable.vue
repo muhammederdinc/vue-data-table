@@ -30,7 +30,9 @@ export default {
       <tbody>
         <tr v-for="(item) in items" :key="item.id">
           <td v-for="{ value } in headers" :key="value">
-            {{ item[value] }}
+            <slot :name="value">
+             {{ item[value] }}
+            </slot>
           </td>
         </tr>
       </tbody>

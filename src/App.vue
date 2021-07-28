@@ -30,6 +30,11 @@ export default {
           text: 'Status',
           value: 'completed',
         },
+        {
+          id: 4,
+          text: 'Actions',
+          value: 'actions',
+        },
       ],
     };
   },
@@ -51,7 +56,12 @@ export default {
     <v-data-table
       :headers="headers"
       :items="tableItems"
-    />
+    >
+      <template slot="actions">
+        <button>Edit</button>
+        <button>Delete</button>
+      </template>
+    </v-data-table>
   </div>
 </template>
 

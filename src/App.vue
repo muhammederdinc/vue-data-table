@@ -1,45 +1,47 @@
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import VDataTable from './components/VDataTable.vue';
 
 export default {
   name: 'App',
+  components: {
+    VDataTable,
+  },
   data() {
     return {
       headers: [
         {
           id: 0,
-          name: '#',
-        },
-        {
-          id: 0,
-          name: 'Başlık 1',
+          text: '#',
+          value: 'id',
         },
         {
           id: 1,
-          name: 'Başlık 2',
-        },
-      ],
-      items: [
-        {
-          id: 0,
-          name: 'Öğe 1',
-          name2: 'Test',
-        },
-        {
-          id: 1,
-          name: 'Öğe 2',
-          name2: 'Test',
+          text: 'Title',
+          value: 'title',
         },
         {
           id: 2,
-          name: 'Öğe 3',
-          name2: 'Test',
+          text: 'Assignee',
+          value: 'user',
+        },
+        {
+          id: 3,
+          text: 'Status',
+          value: 'completed',
         },
       ],
     };
   },
-  components: {
-    VDataTable,
+  computed: {
+    ...mapGetters(['tableItems']),
+  },
+  mounted() {
+    this.fetchTodos();
+    this.fetchUsers();
+  },
+  methods: {
+    ...mapActions(['fetchTodos', 'fetchUsers']),
   },
 };
 </script>
@@ -48,7 +50,7 @@ export default {
   <div id="app">
     <v-data-table
       :headers="headers"
-      :items="items"
+      :items="tableItems"
     />
   </div>
 </template>

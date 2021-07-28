@@ -20,17 +20,17 @@ export default {
       <thead>
         <tr>
           <th
-            v-for="{ id, name } in headers"
-            v-text="name"
+            v-for="{ id, text } in headers"
+            v-text="text"
             :key="id"
           />
         </tr>
       </thead>
 
       <tbody>
-        <tr v-for="item in items" :key="item.id">
-          <td v-for="value in item" :key="value">
-            {{ value }}
+        <tr v-for="(item) in items" :key="item.id">
+          <td v-for="{ value } in headers" :key="value">
+            {{ item[value] }}
           </td>
         </tr>
       </tbody>

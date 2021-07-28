@@ -6,6 +6,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    items: {
+      type: Array,
+      default: () => [],
+    },
   },
 };
 </script>
@@ -24,21 +28,9 @@ export default {
       </thead>
 
       <tbody>
-        <tr>
-          <td>
-            test
-          </td>
-          <td>
-            test
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            test
-          </td>
-          <td>
-            test
+        <tr v-for="item in items" :key="item.id">
+          <td v-for="value in item" :key="value">
+            {{ value }}
           </td>
         </tr>
       </tbody>

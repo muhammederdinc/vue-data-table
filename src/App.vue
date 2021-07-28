@@ -8,11 +8,32 @@ export default {
       headers: [
         {
           id: 0,
+          name: '#',
+        },
+        {
+          id: 0,
           name: 'Başlık 1',
         },
         {
           id: 1,
           name: 'Başlık 2',
+        },
+      ],
+      items: [
+        {
+          id: 0,
+          name: 'Öğe 1',
+          name2: 'Test',
+        },
+        {
+          id: 1,
+          name: 'Öğe 2',
+          name2: 'Test',
+        },
+        {
+          id: 2,
+          name: 'Öğe 3',
+          name2: 'Test',
         },
       ],
     };
@@ -25,8 +46,9 @@ export default {
 
 <template>
   <div id="app">
-    <VDataTable
+    <v-data-table
       :headers="headers"
+      :items="items"
     />
   </div>
 </template>

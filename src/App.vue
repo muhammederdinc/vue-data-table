@@ -57,12 +57,12 @@ export default {
       :headers="headers"
       :items="tableItems"
     >
-      <template slot="actions">
+      <template slot="actions" slot-scope="{ props }">
         <button class="button__edit">Edit</button>
         <button
           v-text="'Delete'"
           class="button__delete"
-          @click="deleteTodo(1)"
+          @click="deleteTodo(props.item.id)"
         />
       </template>
     </v-data-table>

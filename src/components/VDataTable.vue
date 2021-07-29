@@ -47,7 +47,10 @@ export default {
       <tbody>
         <tr v-for="(item) in dataPerPage" :key="item.id">
           <td v-for="{ value } in headers" :key="value">
-            <slot :name="value">
+            <slot
+              :name="value"
+              :props="{ item }"
+            >
              {{ item[value] }}
             </slot>
           </td>

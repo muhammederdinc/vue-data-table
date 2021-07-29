@@ -11,6 +11,20 @@ export default {
       default: () => [],
     },
   },
+  data() {
+    return {
+      page: 1,
+    };
+  },
+  computed: {
+    dataPerPage() {
+      const pageSize = 10;
+
+      return [
+        ...this.items.slice((this.page - 1) * pageSize, this.page * pageSize),
+      ];
+    },
+  },
 };
 </script>
 
@@ -28,7 +42,7 @@ export default {
       </thead>
 
       <tbody>
-        <tr v-for="(item) in items" :key="item.id">
+        <tr v-for="(item) in dataPerPage" :key="item.id">
           <td v-for="{ value } in headers" :key="value">
             <slot :name="value">
              {{ item[value] }}
@@ -37,6 +51,28 @@ export default {
         </tr>
       </tbody>
     </table>
+
+    <button
+      @click="page--"
+      :disabled="page === 1"
+    >
+      Prev
+    </button>
+
+    <button
+      v-for="item in items.length / 10" :key="item"
+      @click="page = item"
+      :style="page === item ? 'background-color: #1976D2' : ''"
+    >
+      {{ item }}
+    </button>
+
+    <button
+      @click="page++"
+      :disabled="page === items.length / 10"
+    >
+      Next
+    </button>
   </div>
 </template>
 
@@ -95,5 +131,16 @@ tr {
       width: 30%;
     }
   }
+}
+
+button {
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 6px;
 }
 </style>

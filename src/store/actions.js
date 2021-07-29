@@ -9,4 +9,12 @@ export default {
       .then((response) => response.json())
       .then((users) => commit('setUsers', users));
   },
+  deleteTodo({ commit }, id) {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, { method: 'DELETE' })
+      .then((response) => {
+        if (response.status === 200) {
+          commit('deleteTodo', id);
+        }
+      });
+  },
 };

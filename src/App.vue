@@ -46,7 +46,7 @@ export default {
     this.fetchUsers();
   },
   methods: {
-    ...mapActions(['fetchTodos', 'fetchUsers']),
+    ...mapActions(['fetchTodos', 'fetchUsers', 'deleteTodo']),
   },
 };
 </script>
@@ -59,7 +59,11 @@ export default {
     >
       <template slot="actions">
         <button class="button__edit">Edit</button>
-        <button class="button__delete">Delete</button>
+        <button
+          v-text="'Delete'"
+          class="button__delete"
+          @click="deleteTodo(1)"
+        />
       </template>
     </v-data-table>
   </div>
@@ -78,10 +82,12 @@ export default {
 .button {
   &__edit {
     background-color: #2196F3;
+    color: #fff;
   }
 
   &__delete {
     background-color: #F44336;
+    color: #fff;
   }
 }
 </style>

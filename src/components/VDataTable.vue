@@ -24,6 +24,9 @@ export default {
         ...this.items.slice((this.page - 1) * pageSize, this.page * pageSize),
       ];
     },
+    itemsPerPage() {
+      return parseInt(this.items.length / 10, 10);
+    },
   },
 };
 </script>
@@ -53,23 +56,23 @@ export default {
     </table>
 
     <button
-      @click="page--"
       :disabled="page === 1"
+      @click="page--"
     >
       Prev
     </button>
 
     <button
-      v-for="item in items.length / 10" :key="item"
-      @click="page = item"
+      v-for="item in itemsPerPage" :key="item"
       :style="page === item ? 'background-color: #1976D2' : ''"
+      @click="page = item"
     >
       {{ item }}
     </button>
 
     <button
+      :disabled="page === itemsPerPage"
       @click="page++"
-      :disabled="page === items.length / 10"
     >
       Next
     </button>

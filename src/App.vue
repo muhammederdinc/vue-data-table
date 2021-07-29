@@ -1,11 +1,13 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import VDataTable from './components/VDataTable.vue';
+import VDialog from './components/VDialog.vue';
 
 export default {
   name: 'App',
   components: {
     VDataTable,
+    VDialog,
   },
   data() {
     return {
@@ -36,6 +38,8 @@ export default {
           value: 'actions',
         },
       ],
+      isDialogVisible: false,
+      selectedItem: {},
     };
   },
   computed: {
@@ -47,6 +51,10 @@ export default {
   },
   methods: {
     ...mapActions(['fetchTodos', 'fetchUsers', 'deleteTodo']),
+    editItem(selectedItem) {
+      this.isDialogVisible = true;
+      this.selectedItem = selectedItem;
+    },
   },
 };
 </script>
@@ -58,7 +66,12 @@ export default {
       :items="tableItems"
     >
       <template slot="actions" slot-scope="{ props }">
-        <button class="button__edit">Edit</button>
+        <button
+          v-text="'Edit'"
+          class="button__edit"
+          @click="editItem(props.item)"
+        />
+
         <button
           v-text="'Delete'"
           class="button__delete"
@@ -66,6 +79,13 @@ export default {
         />
       </template>
     </v-data-table>
+
+    <v-dialog
+      v-if="isDialogVisible"
+      :item="selectedItem"
+      @close="isDialogVisible = false"
+    >
+    </v-dialog>
   </div>
 </template>
 

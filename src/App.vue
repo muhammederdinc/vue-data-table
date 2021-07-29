@@ -58,14 +58,14 @@ export default {
       :items="tableItems"
     >
       <template slot="actions">
-        <button>Edit</button>
-        <button>Delete</button>
+        <button class="button__edit">Edit</button>
+        <button class="button__delete">Delete</button>
       </template>
     </v-data-table>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -73,5 +73,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.button {
+  &__edit {
+    background-color: #2196F3;
+  }
+
+  &__delete {
+    background-color: #F44336;
+  }
 }
 </style>

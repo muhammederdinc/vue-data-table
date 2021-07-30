@@ -37,10 +37,16 @@ export default {
       <thead>
         <tr>
           <th
-            v-for="{ id, text } in headers"
-            v-text="text"
+            v-for="{ id, text, value } in headers"
             :key="id"
-          />
+          >
+            <slot
+              :name="`header-${value}`"
+              :props="{ text }"
+            >
+              {{ text }}
+            </slot>
+          </th>
         </tr>
       </thead>
 
@@ -48,7 +54,7 @@ export default {
         <tr v-for="(item) in dataPerPage" :key="item.id">
           <td v-for="{ value } in headers" :key="value">
             <slot
-              :name="value"
+              :name="`item-${value}`"
               :props="{ item }"
             >
              {{ item[value] }}

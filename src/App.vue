@@ -65,7 +65,7 @@ export default {
       :headers="headers"
       :items="tableItems"
     >
-      <template slot="actions" slot-scope="{ props }">
+      <template slot="item-actions" slot-scope="{ props }">
         <button
           v-text="'Edit'"
           class="btn btn--primary"

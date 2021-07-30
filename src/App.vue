@@ -68,13 +68,13 @@ export default {
       <template slot="actions" slot-scope="{ props }">
         <button
           v-text="'Edit'"
-          class="btn btn-primary"
+          class="btn btn--primary"
           @click="editItem(props.item)"
         />
 
         <button
           v-text="'Delete'"
-          class="btn btn-error"
+          class="btn btn--error"
           @click="deleteTodo(props.item.id)"
         />
       </template>

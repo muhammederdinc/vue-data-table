@@ -68,7 +68,7 @@ export default {
 
     <button
       v-for="item in itemsPerPage" :key="item"
-      :class="page === item ? 'btn btn-primary' : 'btn'"
+      :class="page === item ? 'btn btn--primary' : 'btn'"
       @click="page = item"
     >
       {{ item }}

@@ -8,12 +8,12 @@
   margin: 4px 2px;
   border-radius: 6px;
 
-  &-primary {
+  &--primary {
     background-color: $primary;
     color: $white;
   }
 
-  &-error {
+  &--error {
     background-color: $error;
     color: $white;
   }

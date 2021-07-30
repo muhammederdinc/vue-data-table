@@ -66,13 +66,13 @@ export default {
           <slot name="footer">
             <button
               v-text="'Save'"
-              class="btn btn-primary modal-default-button"
+              class="btn btn--primary modal-default-button"
               @click="submit"
             />
 
             <button
               v-text="'Close'"
-              class="btn btn-error btn-text modal-default-button"
+              class="btn btn--error modal-default-button"
               @click="$emit('close')"
             />
           </slot>

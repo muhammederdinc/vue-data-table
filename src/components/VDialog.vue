@@ -32,7 +32,10 @@ export default {
         ...item,
       };
 
-      this.updateTodo(params);
+      this.updateTodo(params)
+        .then(() => {
+          this.$emit('close');
+        });
     },
   },
 };

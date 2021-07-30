@@ -53,7 +53,7 @@ export default {
 
         <div class="modal-body">
           <slot name="body">
-            <input v-model="formData.title" type="text">
+            <input v-model="formData.title" class="input" type="text">
 
             <br />
 
@@ -65,15 +65,15 @@ export default {
         <div class="modal-footer">
           <slot name="footer">
             <button
-              v-text="'Close'"
-              class="modal-default-button"
-              @click="$emit('close')"
+              v-text="'Save'"
+              class="btn btn-primary modal-default-button"
+              @click="submit"
             />
 
             <button
-              v-text="'Save'"
-              class="modal-default-button"
-              @click="submit"
+              v-text="'Close'"
+              class="btn btn-error btn-text modal-default-button"
+              @click="$emit('close')"
             />
           </slot>
         </div>

@@ -1,0 +1,48 @@
+table {
+  border-collapse: collapse;
+  margin: 10px auto;
+  width: 75%;
+}
+
+tr {
+  align-items: center;
+  background: $white;
+  border-radius: 2px;
+  box-shadow: 0 0 3px $gray;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0px;
+  th {
+    background: $primary;
+    color: $white;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  td,
+  th {
+    display: table-cell;
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
+@media (max-width: $breakWidth) {
+  table {
+    border-top: 3px solid $primary;
+    width: 100%;
+  }
+  thead{
+    display: none;
+  }
+  tr {
+    flex-flow: row wrap;
+    padding: 10px;
+    td {
+      font-size: 17px;
+      padding: 5px;
+      width: 30%;
+    }
+  }
+}

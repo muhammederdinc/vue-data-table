@@ -60,6 +60,7 @@ export default {
 
     <button
       :disabled="page === 1"
+      class="btn"
       @click="page--"
     >
       Prev
@@ -67,7 +68,7 @@ export default {
 
     <button
       v-for="item in itemsPerPage" :key="item"
-      :style="page === item ? 'background-color: #1976D2' : ''"
+      :class="page === item ? 'btn btn-primary' : 'btn'"
       @click="page = item"
     >
       {{ item }}
@@ -75,6 +76,7 @@ export default {
 
     <button
       :disabled="page === itemsPerPage"
+      class="btn"
       @click="page++"
     >
       Next

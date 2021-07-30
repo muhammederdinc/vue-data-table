@@ -138,15 +138,4 @@ tr {
     }
   }
 }
-
-button {
-  border: none;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 6px;
-}
 </style>

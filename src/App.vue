@@ -68,13 +68,13 @@ export default {
       <template slot="actions" slot-scope="{ props }">
         <button
           v-text="'Edit'"
-          class="button__edit"
+          class="btn btn-primary"
           @click="editItem(props.item)"
         />
 
         <button
           v-text="'Delete'"
-          class="button__delete"
+          class="btn btn-error"
           @click="deleteTodo(props.item.id)"
         />
       </template>
@@ -88,26 +88,3 @@ export default {
     </v-dialog>
   </div>
 </template>
-
-<style lang="scss" scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
-.button {
-  &__edit {
-    background-color: #2196F3;
-    color: #fff;
-  }
-
-  &__delete {
-    background-color: #F44336;
-    color: #fff;
-  }
-}
-</style>

@@ -120,7 +120,7 @@ export default {
 }
 
 .modal-footer {
-  padding-bottom: 12px;
+  padding-bottom: 26px;
 }
 
 .modal-default-button {

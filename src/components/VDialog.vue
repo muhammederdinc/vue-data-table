@@ -25,14 +25,7 @@ export default {
   methods: {
     ...mapActions(['updateTodo']),
     submit() {
-      const { completed, ...item } = this.formData;
-
-      const params = {
-        completed: completed ? 'Done' : 'In Progress',
-        ...item,
-      };
-
-      this.updateTodo(params)
+      this.updateTodo(this.formData)
         .then(() => {
           this.$emit('close');
         });

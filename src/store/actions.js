@@ -17,4 +17,12 @@ export default {
         }
       });
   },
+  updateTodo({ commit }, formData) {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${formData.id}`, { method: 'PATCH' })
+      .then((response) => {
+        if (response.status === 200) {
+          commit('updateTodo', formData);
+        }
+      });
+  },
 };

@@ -1,4 +1,6 @@
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'VDialog',
   props: {
@@ -20,6 +22,19 @@ export default {
       completed: completed === 'Done',
     };
   },
+  methods: {
+    ...mapActions(['updateTodo']),
+    submit() {
+      const { completed, ...item } = this.formData;
+
+      const params = {
+        completed: completed ? 'Done' : 'In Progress',
+        ...item,
+      };
+
+      this.updateTodo(params);
+    },
+  },
 };
 </script>
 
@@ -27,7 +42,6 @@ export default {
   <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
-
         <div class="modal-header">
           <slot name="header">
             Edit Item
@@ -56,7 +70,7 @@ export default {
             <button
               v-text="'Save'"
               class="modal-default-button"
-              @click="$emit('close')"
+              @click="submit"
             />
           </slot>
         </div>
@@ -91,7 +105,6 @@ export default {
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
 }
 
 .modal-header h3 {
